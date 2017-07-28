@@ -1,3 +1,5 @@
 /*
-This is empty on purpose! Your code to build the resume will go here.
+Vamos começar a editar o cabeçalho:
  */
+$("#header").append("Pedro Duarte");
+/*Procuramos um elemento com id = header nesse codigo do JQuery*/
