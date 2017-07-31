@@ -8,4 +8,12 @@ $("#main").append("Pedro Duarte");
 var nome = "Pedro Duarte";
 var formatoNome = HTMLheaderName.replace("%data%", nome);
 
-$("#header").append(formatoNome);
+
+
+/*ADICIONAR NO CABEÇALHO O EMRPEGO PROCURADO USANDO TROCA DE INFORMAÇÃO*/
+
+var papel = "Desenvolvedor Front-End";
+var formatoPapel = HTMLheaderRole.replace("%data%", papel);
+
+$("#header").prepend(formatoPapel);
+$("#header").prepend(formatoNome);
