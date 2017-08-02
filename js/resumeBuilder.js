@@ -1,23 +1,16 @@
 /*
 Vamos começar a editar o cabeçalho:
  */
-$("#main").append("Pedro Duarte");
+//$("#main").append("Pedro Duarte");
 /*Procuramos um elemento com id = main nesse codigo do JQuery*/
 
 /*ADICIONAR NO CABEÇALHO O NOME USANDO TROCA DE INFORMAÇÃO*/
-var nome = "Pedro Duarte";
-var formatoNome = HTMLheaderName.replace("%data%", nome);
+
 
 
 
 /*ADICIONAR NO CABEÇALHO O EMRPEGO PROCURADO USANDO TROCA DE INFORMAÇÃO*/
 
-var papel = "Desenvolvedor Front-End";
-var formatoPapel = HTMLheaderRole.replace("%data%", papel);
-
-
-$("#header").prepend(formatoPapel);
-$("#header").prepend(formatoNome);
 
 /*ADICIONANDO OBJETO NA MINHA BIO*/
 var bio = {
@@ -34,6 +27,16 @@ var bio = {
 	"skills": ["programador", "Front-End", "wordpress"],
 	"bioPic": "images/eu.jpg"
 }
+
+var formatoNome = HTMLheaderName.replace("%data%", bio.name);
+var formatoPapel = HTMLheaderRole.replace("%data%", bio.papel);
+var formatobioPic = HTMLbioPic.replace("%data%",bio.bioPic);
+
+$("#header").prepend(formatoPapel);
+$("#header").prepend(formatoNome);
+$("#header").prepend(formatobioPic);
+
+
 
 if (bio.skills.length > 0 ){
 	$("#header").append(HTMLskillsStart);
@@ -91,12 +94,27 @@ var work = {
 
 /*EXERCICIO COLOCAR PARTE DE WORK*/
 for (job in work.jobs){
+	//CRIA UMA NOVA DIV PARA MOSTRAR NOSSAS EXPERIENCIAS DE TRABALHOS
 	$("#workExperience").append(HTMLworkStart);
-
+	//TITULO DO TRABALHO
 	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	//TITULO DA TAREFA NO TRABALHO
 	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	//SOMA DOS DOIS
 	var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
+	//PARA ADICIONAR NO ULTIMO ELEMENTO DA CLASSE WORK-ENTRY
 	$(".work-entry:last").append(formattedEmployerTitle);
+
+
+	/*COLOCANDO A DATA */
+
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].date);
+	//$(".work-entry:last").append(job);
+	$(".work-entry:last").append(formattedDates);
+
+	/*DESCRIÇÃO do emprego*/
+	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	//$(".work-entry:last").append(job);
+	$(".work-entry:last").append(formattedDescription);
 
 }
